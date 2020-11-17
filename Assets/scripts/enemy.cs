@@ -5,15 +5,13 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
+    public NavMeshAgent myNavMeshAgent;
 
-    
-    void Update()
-    {
-        
-    }
+    public WheelRotate leftwheel;
+    public WheelRotate rightwheel;
+
+    public bool alert = false;
+
+    public float rotationrate = 100f;
+    public float speed = 20f;  
 }

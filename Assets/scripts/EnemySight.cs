@@ -23,13 +23,14 @@ public class EnemySight : MonoBehaviour
         if (!alert)
         {
             current = sighttime;
-
+            enemy.alert = false;
         }
         else
         {
             current -= Time.fixedDeltaTime;
             if (current <= 0)
             {
+                enemy.alert = true;
                 m.EndGame();
             }
         }
