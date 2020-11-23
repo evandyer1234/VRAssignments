@@ -11,6 +11,7 @@ public class ClipTrigger : MonoBehaviour
         if (p != null)
         {
             p.PlayLine(clip);
+            Destroy(this.gameObject);
         }
     }
 }
