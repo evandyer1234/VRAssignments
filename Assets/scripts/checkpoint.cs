@@ -6,22 +6,13 @@ public class checkpoint : MonoBehaviour
 {
     public manager m;
     public GameObject spawnpoint;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "player")
         {
-
+            m.spawn = spawnpoint.transform.position;
         }
     }
 }

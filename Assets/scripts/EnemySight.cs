@@ -11,22 +11,39 @@ public class EnemySight : MonoBehaviour
     public float current;
     public manager m;
     public Enemy enemy;
+    public GameObject spot;
+    public LayerMask mask;
+    public GameObject sight;
+    public AudioSource source;
+    public float gift = 0.2f;
+    public float cg;
 
     void Start()
     {
         current = sighttime;
+        cg = gift;
     }
 
     
     void Update()
     {
+        gameObject.transform.position = spot.transform.position;
+        gameObject.transform.rotation = spot.transform.rotation;
+
         if (!alert)
         {
             current = sighttime;
             enemy.alert = false;
+            cg = gift;
         }
         else
         {
+            cg -= Time.fixedDeltaTime;
+            if (cg <= 0)
+            {
+                source.UnPause();
+
+            }
             current -= Time.fixedDeltaTime;
             if (current <= 0)
             {
@@ -42,19 +59,18 @@ public class EnemySight : MonoBehaviour
             
             RaycastHit hit;
 
-            Vector3 pos = sightspawn.transform.position;
+            Vector3 pos = sight.transform.position;
             Vector3 dir = (pos - other.gameObject.transform.position).normalized;
 
-            if (Physics.Raycast(pos, dir, out hit, Mathf.Infinity))
+            if (Physics.Raycast(pos, dir, out hit, Mathf.Infinity, mask))
+            {               
+                alert = true;
+                Debug.Log(enemy.gameObject.name);
+            }
+            else
             {
-                if (hit.collider.gameObject.tag == "player")
-                {
-                    alert = true;
-                }
-                else
-                {
-                    alert = false;
-                }
+                alert = false;
+                source.Pause();
             }
         }
     }
@@ -63,6 +79,7 @@ public class EnemySight : MonoBehaviour
         if (other.gameObject.tag == "player")
         {
             alert = false;
+            source.Pause();
         }
     }
 }

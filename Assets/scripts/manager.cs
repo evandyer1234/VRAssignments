@@ -8,42 +8,48 @@ public class manager : MonoBehaviour
 {
     public Vector3 spawn;
     public checkpoint defaultspawn;
-    public Renderer black;
+    public Graphic black;
     bool dying = false;
     float dark = 0;
     public float rate = 10f;
     public GameObject player;
+    public float deathtime = 3f;
+    float current;
+    
 
     private void Start()
     {
         spawn = defaultspawn.spawnpoint.transform.position;
+        current = deathtime;
     }
     void Update()
     {
         if (dying)
         {
             dark += rate * Time.fixedDeltaTime;
-            if (dark <= 255f)
+            black.color = new Vector4(0, 0, 0, dark);
+            current -= Time.fixedDeltaTime;
+            if (current <= 0)
             {
                 Respawn();
-            }
-            else
-            {
-                black.material.color = new Vector4(0, 0, 0, dark);
+                current = deathtime;
             }
         }
+
     }
     public void EndGame()
     {
         dying = true;
+        
     }
+    
     public void Respawn()
     {
         dying = false;
         player.transform.position = spawn;
-        black.material.color = new Vector4(0, 0, 0, 255f);
+        black.color = new Vector4(0, 0, 0, 0);
         dark = 0;
-
+        
     }
     public void Leave()
     {

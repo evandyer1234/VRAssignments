@@ -8,9 +8,13 @@ public class EnemyPace : Enemy
     public int listindex = 0;
     public float distance = 1f;
 
-    
+    private void Awake()
+    {
+        myNavMeshAgent.SetDestination(points[listindex].transform.position);
+    }
     void Update()
     {
+        
         if (!alert)
         {
             myNavMeshAgent.enabled = true;
@@ -26,7 +30,7 @@ public class EnemyPace : Enemy
     }
     public void Next()
     {
-        if (listindex < points.Capacity)
+        if (listindex + 1 < points.Capacity)
         {
             listindex++;            
         }
