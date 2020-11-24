@@ -17,15 +17,14 @@ public class ListExchange : MonoBehaviour
             WhenTriggerEntered = new UnityEvent();
         }
     }
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter(Collider collider)
     {
         
 
-        if (collider.gameObject.tag == "player")
-        {
+        
             Activate();
             TriggerEntered();
-        }
+        
     }
     public void Activate()
     {

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public GameObject rig;
     public Rigidbody rb; 
     
-    void FixedUpdate()
+    void Update()
     {
         float side = Input.GetAxis("Horizontal");
         float forward = Input.GetAxis("Vertical");
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -maxspeed);
         }
 
-        //rig.transform.localPosition = new Vector3(0, 0, 0);
+        
     }
     void Forward(float f)
     {
@@ -43,10 +43,10 @@ public class Player : MonoBehaviour
         Vector3 dir = cam.transform.forward;
 
         dir.y = 0;
-        //location += (f * Time.fixedDeltaTime * dir * speed);
+        
         rb.velocity += (f * Time.fixedDeltaTime * dir * speed);
         
-        //transform.position = location;
+        
     }
     void Side(float f)
     {
@@ -54,9 +54,9 @@ public class Player : MonoBehaviour
         Vector3 dir = cam.transform.right;
 
         dir.y = 0;
-        //location += (f * Time.fixedDeltaTime * dir * speed);
+        
         rb.velocity += (f * Time.fixedDeltaTime * dir * speed);
-        //transform.position = location;
+        
     }
 
 }

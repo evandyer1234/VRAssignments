@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7740018975388054190}
   m_Layer: 10
   m_Name: Cone
-  m_TagString: Untagged
+  m_TagString: sight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,3 +715,5 @@ MonoBehaviour:
     m_Bits: 4294967295
   sight: {fileID: 0}
   source: {fileID: 0}
+  gift: 0.2
+  cg: 0
