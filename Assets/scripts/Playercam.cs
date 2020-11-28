@@ -8,7 +8,7 @@ public class Playercam : MonoBehaviour
    
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.gameObject.tag != "player" || other.transform.gameObject.tag != "sight")
+        if (other.transform.gameObject.tag != "player" && other.transform.gameObject.tag != "sight")
         {
             darkness.SetActive(true);
         }
