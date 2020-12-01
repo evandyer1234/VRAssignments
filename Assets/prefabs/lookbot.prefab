@@ -235,6 +235,8 @@ MonoBehaviour:
     type: 3}
   sightspawn: {fileID: 2434152761517477224}
   sight: {fileID: 2904699520084703619}
+  wreck: {fileID: 5558092926702085350, guid: 02e46fd838a94f7489e65b44408d578c, type: 3}
+  current: {fileID: 0}
   m: {fileID: 0}
   source: {fileID: 6162410775208822705}
 --- !u!82 &6162410775208822705

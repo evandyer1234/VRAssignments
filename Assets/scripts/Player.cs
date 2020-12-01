@@ -30,12 +30,12 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, maxspeed);
         }
-        if (rb.velocity.z < -maxspeed)
+        else if (rb.velocity.z < -maxspeed)
         {
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -maxspeed);
         }
 
-        
+        rig.transform.localPosition = new Vector3(0, 0, 0);
     }
     void Forward(float f)
     {

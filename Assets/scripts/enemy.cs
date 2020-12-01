@@ -19,6 +19,10 @@ public class Enemy : MonoBehaviour
     public GameObject sightspawn;
     public GameObject sight;
 
+    public GameObject wreck;
+    [HideInInspector]
+    public EnemySight current;
+
     public manager m;
 
     public AudioSource source;
@@ -26,6 +30,10 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        foreach (manager p in FindObjectsOfType<manager>())
+        {
+            m = p;
+        }
         source.Play();
         source.Pause();
         EnemySight clone;
@@ -35,6 +43,7 @@ public class Enemy : MonoBehaviour
         clone.m = m;
         clone.sight = sight;
         clone.source = source;
+        current = clone;       
     }
 }
 
