@@ -6,7 +6,7 @@ public class ItemExplode : Item
 {
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit");
+        
         Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
         if (enemy != null)
         {

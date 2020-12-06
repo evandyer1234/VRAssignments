@@ -15,9 +15,14 @@ public class EnemyPace : Enemy
     void Update()
     {
         
+        if (myNavMeshAgent.destination == null)
+        {
+            myNavMeshAgent.SetDestination(points[listindex].transform.position);
+        }
         if (!alert)
         {
             myNavMeshAgent.enabled = true;
+            myNavMeshAgent.SetDestination(points[listindex].transform.position);
             if (Vector3.Distance(transform.position, points[listindex].transform.position) < distance)
             {
                 Next();

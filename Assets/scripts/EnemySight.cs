@@ -35,6 +35,7 @@ public class EnemySight : MonoBehaviour
             current = sighttime;
             enemy.alert = false;
             cg = gift;
+            source.Pause();
         }
         else
         {
@@ -56,22 +57,34 @@ public class EnemySight : MonoBehaviour
     {       
         if (other.gameObject.tag == "player")
         {
-            
+            Debug.Log("tag seen");
             RaycastHit hit;
 
             Vector3 pos = sight.transform.position;
-            Vector3 dir = (pos - other.gameObject.transform.position).normalized;
+            Vector3 dir = (other.gameObject.transform.position - pos).normalized;
 
-            if (Physics.Raycast(pos, dir, out hit, Mathf.Infinity, mask))
-            {               
-                alert = true;
-                Debug.Log(enemy.gameObject.name);
-            }
-            else
+            if (Physics.Raycast(pos, dir, out hit, Mathf.Infinity))
             {
-                alert = false;
-                source.Pause();
+                Debug.DrawRay(pos, dir * hit.distance, Color.yellow);
+                Debug.Log(hit.collider.gameObject.name);
+                if (hit.collider.gameObject.tag == "player")
+                {
+                    
+                    alert = true;
+                    Debug.Log(enemy.gameObject.name);
+                }
+                else
+                {
+                    alert = false;
+                }
             }
+           
+            
+        }
+        else
+        {
+            alert = false;
+            source.Pause();
         }
     }
     private void OnTriggerExit(Collider other)

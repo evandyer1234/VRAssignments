@@ -19,7 +19,10 @@ public class manager : MonoBehaviour
 
     private void Start()
     {
-        spawn = defaultspawn.spawnpoint.transform.position;
+        if (defaultspawn != null)
+        {
+            spawn = defaultspawn.spawnpoint.transform.position;
+        }
         current = deathtime;
     }
     void Update()
@@ -55,4 +58,5 @@ public class manager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    
 }
