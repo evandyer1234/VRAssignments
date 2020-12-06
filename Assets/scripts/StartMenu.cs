@@ -6,6 +6,9 @@ public class StartMenu : MonoBehaviour
 { 
     public GameObject floor;
     public GameObject sightlight;
+    public GameObject main;
+    public GameObject credits;
+
     public Player player;
 
     float playerspeed;
@@ -25,6 +28,17 @@ public class StartMenu : MonoBehaviour
         floor.SetActive(false);
         sightlight.SetActive(true);       
    }
+    public void ToCredits()
+    {
+        main.SetActive(false);
+        credits.SetActive(true);
+    }
+
+    public void Back()
+    {
+        main.SetActive(true);
+        credits.SetActive(false);
+    }
     
     public void QuitGame()
     {

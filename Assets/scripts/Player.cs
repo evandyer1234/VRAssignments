@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     public float maxspeed = 10f;
     public GameObject cam;
     public GameObject rig;
-    public Rigidbody rb; 
+    public Rigidbody rb;
+    public GameObject grav;
     
     void Update()
     {
@@ -36,6 +37,12 @@ public class Player : MonoBehaviour
         }
 
         rig.transform.localPosition = new Vector3(0, 0, 0);
+        /*
+        if (transform.rotation != grav.transform.rotation)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, grav.transform.rotation, 0.1f);
+        }
+        */
     }
     void Forward(float f)
     {

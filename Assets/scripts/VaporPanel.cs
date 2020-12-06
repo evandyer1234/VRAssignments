@@ -18,7 +18,10 @@ public class VaporPanel : MonoBehaviour
         if (i != null)
         {
             source.PlayOneShot(clip);
-            i.spawner.Spawn();
+            if (i.spawner != null)
+            {
+                i.spawner.Spawn();
+            }
             Destroy(other.gameObject);
         }
     }

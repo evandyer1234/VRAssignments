@@ -504,6 +504,7 @@ MonoBehaviour:
   cam: {fileID: 126669771157092300}
   rig: {fileID: 126669771316880728}
   rb: {fileID: 126669770387934488}
+  grav: {fileID: 0}
 --- !u!135 &126669770387934489
 SphereCollider:
   m_ObjectHideFlags: 0
