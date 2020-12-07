@@ -8,6 +8,7 @@ public class EndCube : MonoBehaviour
     public float teleTime = 10f;
 
     public GameObject cube;
+    public GameObject cube2;
     public GameObject pipes;
 
     public Transform fallpos;
@@ -53,6 +54,7 @@ public class EndCube : MonoBehaviour
         {
             vp.PlayLine(clip);
             playing = true;
+            cube2.SetActive(true);
         }
     }
 }

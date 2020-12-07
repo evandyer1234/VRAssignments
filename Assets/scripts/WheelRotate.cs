@@ -7,6 +7,6 @@ public class WheelRotate : MonoBehaviour
     
     public void Spin(float speed)
     {
-        transform.localEulerAngles += new Vector3(speed, 0, 0) * Time.fixedDeltaTime;
+        transform.Rotate(speed * Time.fixedDeltaTime * Vector3.up);
     }
 }

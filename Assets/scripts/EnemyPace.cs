@@ -12,6 +12,11 @@ public class EnemyPace : Enemy
     {
         myNavMeshAgent.SetDestination(points[listindex].transform.position);
     }
+    private void FixedUpdate()
+    {
+        leftwheel.Spin(180f);
+        rightwheel.Spin(-180f);
+    }
     void Update()
     {
         

@@ -17,6 +17,7 @@ public class EnemyRotate : Enemy
 
 
             transform.position = location;
+            
         }
     }
 }

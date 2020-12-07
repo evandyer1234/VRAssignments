@@ -705,7 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightspawn: {fileID: 7740018975220977359}
-  sighttime: 3
+  sighttime: 1.5
   current: 0
   m: {fileID: 0}
   enemy: {fileID: 0}
@@ -717,3 +717,4 @@ MonoBehaviour:
   source: {fileID: 0}
   gift: 0.2
   cg: 0
+  collider: {fileID: 7740018975388054178}

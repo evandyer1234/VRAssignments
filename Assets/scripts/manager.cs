@@ -15,7 +15,7 @@ public class manager : MonoBehaviour
     public GameObject player;
     public float deathtime = 3f;
     float current;
-    
+    public ListExchange le;
 
     private void Start()
     {
@@ -52,7 +52,7 @@ public class manager : MonoBehaviour
         player.transform.position = spawn;
         black.color = new Vector4(0, 0, 0, 0);
         dark = 0;
-        
+        le.DeActivate();
     }
     public void Leave()
     {

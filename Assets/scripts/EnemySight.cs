@@ -17,6 +17,9 @@ public class EnemySight : MonoBehaviour
     public AudioSource source;
     public float gift = 0.2f;
     public float cg;
+    public Collider collider;
+    bool reset = false;
+    bool reset2 = false;
 
     void Start()
     {
@@ -32,23 +35,33 @@ public class EnemySight : MonoBehaviour
 
         if (!alert)
         {
-            current = sighttime;
-            enemy.alert = false;
-            cg = gift;
-            source.Pause();
+            if (!reset)
+            {
+                current = sighttime;
+                enemy.alert = false;
+                cg = gift;
+                source.Pause();
+                reset = true;
+                reset2 = false;
+            }
         }
         else
         {
             cg -= Time.fixedDeltaTime;
             if (cg <= 0)
             {
-                source.UnPause();
-
+                if (!reset2)
+                {
+                    source.UnPause();
+                    reset = false;
+                    reset2 = true;
+                }
             }
             current -= Time.fixedDeltaTime;
             if (current <= 0)
             {
-                enemy.alert = true;
+                enemy.alert = false;
+                alert = false;
                 m.EndGame();
             }
         }
@@ -57,6 +70,7 @@ public class EnemySight : MonoBehaviour
     {       
         if (other.gameObject.tag == "player")
         {
+            collider.enabled = false;
             Debug.Log("tag seen");
             RaycastHit hit;
 
@@ -66,25 +80,29 @@ public class EnemySight : MonoBehaviour
             if (Physics.Raycast(pos, dir, out hit, Mathf.Infinity))
             {
                 Debug.DrawRay(pos, dir * hit.distance, Color.yellow);
-                Debug.Log(hit.collider.gameObject.name);
-                if (hit.collider.gameObject.tag == "player")
+                Debug.Log("The name is " + hit.collider.gameObject.name);
+                Debug.Log("The tag is " + hit.collider.gameObject.tag);
+                if ( hit.collider.gameObject.tag == "MainCamera")
                 {
                     
                     alert = true;
-                    Debug.Log(enemy.gameObject.name);
+                    Debug.Log(enemy.gameObject.name + " is detecting");
                 }
                 else
                 {
+                    Debug.Log("the blocking objects tag is " + hit.collider.gameObject.tag);
+                    Debug.Log("the blocking objects name is " + hit.collider.gameObject.name);
+
                     alert = false;
                 }
             }
-           
-            
+
+            collider.enabled = true;
         }
         else
         {
             alert = false;
-            source.Pause();
+            //source.Pause();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -92,7 +110,7 @@ public class EnemySight : MonoBehaviour
         if (other.gameObject.tag == "player")
         {
             alert = false;
-            source.Pause();
+            //source.Pause();
         }
     }
 }

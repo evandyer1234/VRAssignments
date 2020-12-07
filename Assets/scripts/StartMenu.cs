@@ -11,6 +11,8 @@ public class StartMenu : MonoBehaviour
 
     public Player player;
 
+    public AudioSource source;
+
     float playerspeed;
     public float waittime = 1f;
     
@@ -26,7 +28,8 @@ public class StartMenu : MonoBehaviour
    {
         player.speed = playerspeed;   
         floor.SetActive(false);
-        sightlight.SetActive(true);       
+        sightlight.SetActive(true);
+        source.Play();
    }
     public void ToCredits()
     {

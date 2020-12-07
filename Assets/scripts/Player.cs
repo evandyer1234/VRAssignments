@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public GameObject grav;
     
-    void Update()
+    void FixedUpdate()
     {
         float side = Input.GetAxis("Horizontal");
         float forward = Input.GetAxis("Vertical");
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -maxspeed);
         }
 
-        rig.transform.localPosition = new Vector3(0, 0, 0);
+        rig.transform.localPosition = new Vector3(0, -0.5f, 0);
         /*
         if (transform.rotation != grav.transform.rotation)
         {
