@@ -16,6 +16,7 @@ public class manager : MonoBehaviour
     public float deathtime = 3f;
     float current;
     public ListExchange le;
+    public ListExchange le2;
 
     private void Start()
     {
@@ -53,6 +54,7 @@ public class manager : MonoBehaviour
         black.color = new Vector4(0, 0, 0, 0);
         dark = 0;
         le.DeActivate();
+        le2.DeActivate();
     }
     public void Leave()
     {
