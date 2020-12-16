@@ -717,4 +717,4 @@ MonoBehaviour:
   source: {fileID: 0}
   gift: 0.2
   cg: 0
-  collider: {fileID: 7740018975388054178}
+  coll: {fileID: 7740018975388054178}
