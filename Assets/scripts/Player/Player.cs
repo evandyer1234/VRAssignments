@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -maxspeed);
         }
 
-        rig.transform.localPosition = new Vector3(0, -0.5f, 0);
+        rig.transform.localPosition = new Vector3(0, 0.5f, 0);
         /*
         if (transform.rotation != grav.transform.rotation)
         {
